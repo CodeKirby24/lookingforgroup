@@ -6,11 +6,10 @@ var userSchema = mongoose.Schema({
     nickname: String,
     name: String,
     picture: String,
-    locale: String,
     update_at: String,
     email: String,
     email_verified: Boolean,
-    sub: String
+    body: String
 })
 
 const userModel = mongoose.model('Users', userSchema)

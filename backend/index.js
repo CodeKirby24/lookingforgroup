@@ -1,4 +1,5 @@
-const userModel = require('./userSchema');
+const userModel = require("./userSchema");
+const postModel = require('./postSchema');
 
 const server = 'mongodb+srv://egguwu:CodeKirby24@cluster0.zwunwic.mongodb.net/LFG'
 const express = require('express');
@@ -26,6 +27,13 @@ app.post('/users/upload', async(req, res) => {
 
 
 
+
+app.post('/userData/upload', async (req, res) => {
+  let content = req.body;
+  console.log(content, 'content data');
+  let data = await postModel.create(req.body)
+  res.status(201).json({data});
+})
 
 app.listen(3002, () => {
     console.log('Server is listening on port 3002')

@@ -4,7 +4,20 @@ import { useEffect } from "react";
 
 function UserProfile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-  console.log(user)
+   console.log(user);
+
+
+  function post() {
+    if (isAuthenticated) {
+      axios.post("http://localhost:3002/users/upload", user).then((res) => {
+        console.log(res.data, "postdata");
+      });
+      console.log("True");
+    } else {
+      console.log("false");
+    }
+  }
+
   useEffect(() => {
     axios.post('http://localhost:3002/users/upload', user)
   axios.get('http://localhost:3002/users')
